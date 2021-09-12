@@ -1,0 +1,187 @@
+<template>
+  <n-data-table :columns="columns" :data="data" :max-height="500" />
+</template>
+
+<script>
+import { NDataTable } from "naive-ui";
+import { defineComponent } from "vue";
+
+const createData = () => [
+  {
+    name: "9 等兵",
+    rank: 1,
+    getAp: 1290,
+    loseAp: 24,
+    levelUpAp: 0,
+  },
+  {
+    name: "8 等兵",
+    rank: 2,
+    getAp: 168,
+    loseAp: 37,
+    levelUpAp: 1200,
+  },
+  {
+    name: "7 等兵",
+    rank: 3,
+    getAp: 235,
+    loseAp: 58,
+    levelUpAp: 4220,
+  },
+  {
+    name: "6 等兵",
+    rank: 4,
+    getAp: 329,
+    loseAp: 91,
+    levelUpAp: 10990,
+  },
+  {
+    name: "5 等兵",
+    rank: 5,
+    getAp: 461,
+    loseAp: 143,
+    levelUpAp: 23500,
+  },
+  {
+    name: "4 等兵",
+    rank: 6,
+    getAp: 645,
+    loseAp: 225,
+    levelUpAp: 42780,
+  },
+  {
+    name: "3 等兵",
+    rank: 7,
+    getAp: 903,
+    loseAp: 356,
+    levelUpAp: 69700,
+  },
+  {
+    name: "2 等兵",
+    rank: 8,
+    getAp: 1264,
+    loseAp: 561,
+    levelUpAp: 105600,
+  },
+  {
+    name: "1 等兵",
+    rank: 9,
+    getAp: 1770,
+    loseAp: 885,
+    levelUpAp: 150800,
+  },
+  {
+    name: "一星軍官",
+    rank: 10,
+    getAp: 2124,
+    loseAp: 1195,
+    levelUpAp: 214100,
+    limit: 1000,
+  },
+  {
+    name: "二星軍官",
+    rank: 11,
+    getAp: 2549,
+    loseAp: 1616,
+    levelUpAp: 278700,
+    limit: 700,
+  },
+  {
+    name: "三星軍官",
+    rank: 12,
+    getAp: 3059,
+    loseAp: 2184,
+    levelUpAp: 344500,
+    limit: 500,
+  },
+  {
+    name: "四星軍官",
+    rank: 13,
+    getAp: 3671,
+    loseAp: 2949,
+    levelUpAp: 411700,
+    limit: 300,
+  },
+  {
+    name: "五星軍官",
+    rank: 14,
+    getAp: 4405,
+    loseAp: 3981,
+    levelUpAp: 488200,
+    limit: 100,
+  },
+  {
+    name: "將軍",
+    rank: 15,
+    getAp: 5286,
+    loseAp: 5374,
+    levelUpAp: 565400,
+    limit: 30,
+  },
+  {
+    name: "大將軍",
+    rank: 16,
+    getAp: 6343,
+    loseAp: 7258,
+    levelUpAp: 643200,
+    limit: 10,
+  },
+  {
+    name: "司令官",
+    rank: 17,
+    getAp: 7612,
+    loseAp: 9799,
+    levelUpAp: 721600,
+    limit: 3,
+  },
+  {
+    name: "總司令",
+    rank: 18,
+    getAp: 9134,
+    loseAp: 13229,
+    levelUpAp: 800700,
+    limit: 1,
+  },
+];
+
+const createColumns = () => {
+  return [
+    {
+      title: "軍階",
+      key: "name",
+    },
+    {
+      title: "等級",
+      key: "rank",
+    },
+    {
+      title: "獲取 AP",
+      key: "getAp",
+    },
+    {
+      title: "損失 AP",
+      key: "loseAp",
+    },
+    {
+      title: "升級所需 AP",
+      key: "levelUpAp",
+    },
+    {
+      title: "各族限制人數",
+      key: "limit",
+    },
+  ];
+};
+
+export default defineComponent({
+  components: {
+    NDataTable,
+  },
+  setup() {
+    return {
+      data: createData(),
+      columns: createColumns(),
+    };
+  },
+});
+</script>

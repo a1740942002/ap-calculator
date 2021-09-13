@@ -5,30 +5,9 @@
 <script>
 import { NDataTable } from "naive-ui";
 import { defineComponent } from "vue";
+import abyssData from "@/data/abyssGearData.json";
 
-const createData = () => [
-  {
-    name: "執政官十夫長之巨劍",
-    level: 30,
-    requireAp: 175900,
-    medal: null,
-    medalNum: 0,
-  },
-  {
-    name: "執政官百夫長之巨劍",
-    level: 40,
-    requireAp: 106350,
-    medal: "🥈",
-    medalNum: 18,
-  },
-  {
-    name: "精銳執政官千夫長之巨劍",
-    level: 50,
-    requireAp: 645540,
-    medal: "🥇",
-    medalNum: 65,
-  },
-];
+const createData = () => abyssData;
 
 const createColumns = () => {
   return [

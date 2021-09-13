@@ -5,12 +5,16 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watchEffect } from "vue";
+import { setSelectPosition } from "@/hooks/useSelect";
 
 export default defineComponent({
   setup() {
+    const value = ref(null);
+    watchEffect(() => setSelectPosition(value.value));
+
     return {
-      value: ref(null),
+      value,
       options: [
         {
           label: "總司令",

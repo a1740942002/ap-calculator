@@ -1,6 +1,10 @@
 <template>
   <n-space vertical>
-    <n-select v-model:value="value" :options="options" placeholder="請選擇" />
+    <n-select
+      v-model:value="value"
+      :options="options"
+      placeholder="請選擇軍階"
+    />
   </n-space>
 </template>
 

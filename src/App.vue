@@ -42,38 +42,6 @@
       </div>
 
       <div class="space-y-4">
-        <h3 class="text-xl">設定目標</h3>
-        <div>
-          <label for="">目標深淵點</label>
-          <n-input-number
-            v-model:value="expectAp"
-            clearable
-            placeholder="請輸入您的目標深淵點..."
-          />
-          <p>距離你的目標還差 {{ result }} 深淵點</p>
-          <p>
-            需要再與 ATM 殺星對刷 {{ Math.ceil(result / userBrushTotal) }} 次！
-          </p>
-        </div>
-
-        <div>
-          <p>我想當...</p>
-          <SelectPosition />
-          <p>
-            距離你想當的職位還差 {{ selectPosition?.levelUpAp - userAp }} 深淵點
-          </p>
-          <p>需要再與 ATM 殺星對刷 100 次！</p>
-        </div>
-
-        <div>
-          <p>我想換...</p>
-          <SelectGear />
-          <p>距離你想換的武器還差</p>
-          <p>需要再與 ATM 殺星對刷 19 次！</p>
-        </div>
-      </div>
-
-      <div class="space-y-4">
         <h3 class="text-xl">對刷相關</h3>
         <div>
           <label for="">殺 ATM 殺星次數</label>
@@ -81,9 +49,12 @@
             v-model:value="killNum"
             clearable
             placeholder="請輸入您要擊殺的次數"
+            max="5"
           />
-          <p>您預計獲取 {{ userBrushGet }} 深淵點</p>
-          <p>ATM 殺星 預計獲取 {{ atmBrushGet }} 深淵點</p>
+          <div v-if="userBrushGet">
+            <p>您預計獲取 {{ userBrushGet }} 深淵點</p>
+            <p>ATM 殺星 預計獲取 {{ atmBrushGet }} 深淵點</p>
+          </div>
         </div>
 
         <div>
@@ -92,13 +63,64 @@
             v-model:value="deadNum"
             clearable
             placeholder="請輸入您要被擊殺的次數"
+            max="5"
           />
-          <p>您預計損失 {{ userBrushLose }} 深淵點</p>
-          <p>ATM 殺星 預計損失 {{ atmBrushLose }} 深淵點</p>
+          <div v-if="userBrushLose">
+            <p>您預計損失 {{ userBrushLose }} 深淵點</p>
+            <p>ATM 殺星 預計損失 {{ atmBrushLose }} 深淵點</p>
+          </div>
         </div>
-        <div>
+
+        <div v-if="userBrushTotal && atmBrushTotal">
+          <n-divider />
           <p>您總計獲得 {{ userBrushTotal }} 深淵點</p>
           <p>ATM 殺星總計獲得 {{ atmBrushTotal }} 深淵點</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-xl">設定目標</h3>
+        <div>
+          <label for="">目標深淵點</label>
+          <n-input-number
+            v-model:value="expectAp"
+            clearable
+            placeholder="請輸入目標深淵點..."
+          />
+          <div v-if="expectAp">
+            <p>距離你的目標還差 {{ goalResult }} 深淵點</p>
+            <p>
+              需要再與 ATM 殺星對刷
+              {{ Math.ceil(goalResult / userBrushTotal) }} 次！
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p>我想當...</p>
+          <SelectPosition />
+          <div v-if="selectPosition">
+            <p>
+              距離你想當的職位還差
+              {{ selectPosition?.levelUpAp - userAp }} 深淵點
+            </p>
+            <p>
+              需要再與 ATM 殺星對刷
+              {{
+                Math.ceil((selectPosition?.levelUpAp - userAp) / userBrushTotal)
+              }}
+              次！
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p>我想換...</p>
+          <SelectGear />
+          <div v-if="false">
+            <p>距離你想換的武器還差</p>
+            <p>需要再與 ATM 殺星對刷 19 次！</p>
+          </div>
         </div>
       </div>
     </div>
@@ -138,17 +160,28 @@ export default {
     const userAp = ref();
     const expectAp = ref();
     const atmAp = ref();
-    const result = computed(() => expectAp.value - userAp.value);
+    const goalResult = computed(() => expectAp.value - userAp.value);
     const killNum = ref();
     const deadNum = ref();
     const userBrushGet = computed(
       () => killNum.value * atmPosition.value?.getAp
     );
+    const atmBrushGet = computed(
+      () => deadNum.value * userPosition.value?.getAp
+    );
+
     const userBrushLose = computed(
       () => deadNum.value * userPosition.value?.loseAp
     );
+    const atmBrushLose = computed(
+      () => killNum.value * atmPosition.value?.loseAp
+    );
+
     const userBrushTotal = computed(
       () => userBrushGet.value - userBrushLose.value
+    );
+    const atmBrushTotal = computed(
+      () => atmBrushGet.value - atmBrushLose.value
     );
 
     watchEffect(() => {
@@ -160,12 +193,15 @@ export default {
       userAp,
       expectAp,
       atmAp,
-      result,
+      goalResult,
       killNum,
       deadNum,
       userBrushGet,
+      atmBrushGet,
       userBrushLose,
+      atmBrushLose,
       userBrushTotal,
+      atmBrushTotal,
       userPosition,
       nextUserPosition,
       atmPosition,

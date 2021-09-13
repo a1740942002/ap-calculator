@@ -4,24 +4,25 @@
       v-model:value="value"
       :options="options"
       placeholder="請選擇裝備"
+      disabled="true"
     />
   </n-space>
 </template>
 
 <script>
 import { defineComponent, ref, watchEffect } from "vue";
-import { setSelectPosition } from "@/hooks/useSelect";
+import { setSelectGear } from "@/hooks/useSelect";
 
 export default defineComponent({
   setup() {
     const value = ref(null);
-    watchEffect(() => setSelectPosition(value.value));
+    watchEffect(() => setSelectGear(value.value));
 
     return {
       value,
       options: [
         {
-          label: "精銳千夫長武器",
+          label: "精銳千夫長雙手武器",
           value: 18,
         },
       ],

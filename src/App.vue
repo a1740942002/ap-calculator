@@ -49,7 +49,7 @@
             v-model:value="killNum"
             clearable
             placeholder="請輸入您要擊殺的次數"
-            max="5"
+            max="6"
           />
           <div v-if="userBrushGet">
             <p>您預計獲取 {{ userBrushGet }} 深淵點</p>
@@ -63,7 +63,7 @@
             v-model:value="deadNum"
             clearable
             placeholder="請輸入您要被擊殺的次數"
-            max="5"
+            max="6"
           />
           <div v-if="userBrushLose">
             <p>您預計損失 {{ userBrushLose }} 深淵點</p>
@@ -77,6 +77,15 @@
             <p>您總計獲得 {{ userBrushTotal }} 深淵點</p>
           </n-alert>
           <n-alert :type="atmBrushTotal > 0 ? 'success' : 'error'">
+            <p>ATM 殺星總計獲得 {{ atmBrushTotal }} 深淵點</p>
+          </n-alert>
+        </div>
+        <div v-else-if="atmBrushTotal == 0">
+          <n-divider />
+          <n-alert :type="userBrushTotal > 0 ? 'success' : 'error'">
+            <p>您總計獲得 {{ userBrushTotal }} 深淵點</p>
+          </n-alert>
+          <n-alert type="warning">
             <p>ATM 殺星總計獲得 {{ atmBrushTotal }} 深淵點</p>
           </n-alert>
         </div>

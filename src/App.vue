@@ -73,8 +73,12 @@
 
         <div v-if="userBrushTotal && atmBrushTotal">
           <n-divider />
-          <p>您總計獲得 {{ userBrushTotal }} 深淵點</p>
-          <p>ATM 殺星總計獲得 {{ atmBrushTotal }} 深淵點</p>
+          <n-alert :type="userBrushTotal > 0 ? 'success' : 'warning'">
+            <p>您總計獲得 {{ userBrushTotal }} 深淵點</p>
+          </n-alert>
+          <n-alert :type="atmBrushTotal > 0 ? 'success' : 'warning'">
+            <p>ATM 殺星總計獲得 {{ atmBrushTotal }} 深淵點</p>
+          </n-alert>
         </div>
       </div>
 

@@ -5,9 +5,9 @@
 <script>
 import { NDataTable } from "naive-ui";
 import { defineComponent } from "vue";
-import positionData from "@/data/positionData.json";
+import positionDatas from "@/data/positionDatas.json";
 
-const createData = () => positionData;
+const createData = () => positionDatas;
 
 const createColumns = () => {
   return [

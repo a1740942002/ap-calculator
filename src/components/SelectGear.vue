@@ -1,31 +1,33 @@
 <template>
   <n-space vertical>
     <n-select
-      v-model:value="value"
-      :options="options"
+      v-model:value="selectValue"
+      :options="selectOptions"
       placeholder="請選擇裝備"
-      disabled="true"
     />
   </n-space>
 </template>
 
 <script>
 import { defineComponent, ref, watchEffect } from "vue";
-import { setSelectGear } from "@/hooks/useSelect";
+import { selectGear, setSelectGear } from "@/hooks/useState";
+import abyssGearDatas from "@/data/abyssGearDatas.json";
 
 export default defineComponent({
   setup() {
-    const value = ref(null);
-    watchEffect(() => setSelectGear(value.value));
+    const selectValue = ref(null);
+    const selectOptions = ref([]);
+    selectOptions.value = abyssGearDatas.map((data) => ({
+      label: data.name,
+      value: data.name,
+    }));
+
+    watchEffect(() => setSelectGear(selectValue.value));
 
     return {
-      value,
-      options: [
-        {
-          label: "精銳千夫長雙手武器",
-          value: 18,
-        },
-      ],
+      selectValue,
+      selectOptions,
+      selectGear,
     };
   },
 });

@@ -3,6 +3,7 @@
     <div>
       <h1 class="text-3xl font-semibold">ATM 殺星計算機</h1>
       <p>給我 ATM 殺星，我給你全世界。</p>
+      <p>{{ selectGear?.name }}</p>
     </div>
 
     <div class="flex justify-between">
@@ -153,8 +154,9 @@ import {
   nextUserPosition,
   atmPosition,
   setAtmPosition,
-} from "@/hooks/usePosition";
-import { selectPosition } from "@/hooks/useSelect";
+  selectPosition,
+  selectGear,
+} from "@/hooks/useState";
 import { ref, computed, watchEffect } from "vue";
 
 export default {
@@ -208,6 +210,7 @@ export default {
       nextUserPosition,
       atmPosition,
       selectPosition,
+      selectGear,
     };
   },
 };

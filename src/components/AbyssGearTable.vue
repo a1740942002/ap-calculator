@@ -5,9 +5,9 @@
 <script>
 import { NDataTable } from "naive-ui";
 import { defineComponent } from "vue";
-import abyssData from "@/data/abyssGearData.json";
+import abyssGearDatas from "@/data/abyssGearDatas.json";
 
-const createData = () => abyssData;
+const createData = () => abyssGearDatas;
 
 const createColumns = () => {
   return [

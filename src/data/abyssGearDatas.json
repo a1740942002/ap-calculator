@@ -1,0 +1,177 @@
+[
+  {
+    "name": "十夫長戒指/腰帶",
+    "level": 30,
+    "requireAp": 44000,
+    "medal": null,
+    "medalNum": 0
+  },
+  {
+    "name": "十夫長耳環",
+    "level": 30,
+    "requireAp": 66000,
+    "medal": null,
+    "medalNum": 0
+  },
+  {
+    "name": "十夫長項鍊/頭飾",
+    "level": 30,
+    "requireAp": 88000,
+    "medal": null,
+    "medalNum": 0
+  },
+  {
+    "name": "十夫長武器",
+    "level": 30,
+    "requireAp": 175900,
+    "medal": null,
+    "medalNum": 0
+  },
+  {
+    "name": "十夫長盾牌",
+    "level": 30,
+    "requireAp": 117300,
+    "medal": null,
+    "medalNum": 0
+  },
+  {
+    "name": "精銳十夫長武器",
+    "level": 30,
+    "requireAp": 211000,
+    "medal": "🥈",
+    "medalNum": 14
+  },
+  {
+    "name": "百夫長戒指/腰帶",
+    "level": 40,
+    "requireAp": 79800,
+    "medal": "🥈",
+    "medalNum": 14
+  },
+  {
+    "name": "百夫長耳環",
+    "level": 40,
+    "requireAp": 119600,
+    "medal": "🥈",
+    "medalNum": 20
+  },
+  {
+    "name": "百夫長項鍊/頭飾",
+    "level": 40,
+    "requireAp": 159500,
+    "medal": "🥈",
+    "medalNum": 27
+  },
+  {
+    "name": "百夫長武器",
+    "level": 40,
+    "requireAp": 319000,
+    "medal": "🥈",
+    "medalNum": 53
+  },
+  {
+    "name": "百夫長盾牌",
+    "level": 40,
+    "requireAp": 212700,
+    "medal": "🥈",
+    "medalNum": 36
+  },
+  {
+    "name": "精銳百夫長手腳肩",
+    "level": 40,
+    "requireAp": 159500,
+    "medal": "🥈",
+    "medalNum": 27
+  },
+  {
+    "name": "精銳百夫長下衣",
+    "level": 40,
+    "requireAp": 239200,
+    "medal": "🥈",
+    "medalNum": 40
+  },
+  {
+    "name": "精銳百夫長上衣",
+    "level": 40,
+    "requireAp": 319000,
+    "medal": "🥈",
+    "medalNum": 53
+  },
+  {
+    "name": "精銳百夫長武器",
+    "level": 40,
+    "requireAp": 478400,
+    "medal": "🥈",
+    "medalNum": 79
+  },
+  {
+    "name": "精銳百夫長盾牌",
+    "level": 40,
+    "requireAp": 319000,
+    "medal": "🥈",
+    "medalNum": 53
+  },
+  {
+    "name": "千夫長戒指/腰帶",
+    "level": 50,
+    "requireAp": 153700,
+    "medal": "🥇",
+    "medalNum": 16
+  },
+  {
+    "name": "千夫長耳環",
+    "level": 50,
+    "requireAp": 230600,
+    "medal": "🥇",
+    "medalNum": 24
+  },
+  {
+    "name": "千夫長項鍊/頭飾",
+    "level": 50,
+    "requireAp": 307400,
+    "medal": "🥇",
+    "medalNum": 31
+  },
+  {
+    "name": "千夫長武器",
+    "level": 50,
+    "requireAp": 614800,
+    "medal": "🥇",
+    "medalNum": 62
+  },
+  {
+    "name": "精銳千夫長手腳肩",
+    "level": 50,
+    "requireAp": 307400,
+    "medal": "🥇",
+    "medalNum": 31
+  },
+  {
+    "name": "精銳千夫長下衣",
+    "level": 50,
+    "requireAp": 461100,
+    "medal": "🥇",
+    "medalNum": 47
+  },
+  {
+    "name": "精銳千夫長上衣",
+    "level": 50,
+    "requireAp": 614800,
+    "medal": "🥇",
+    "medalNum": 62
+  },
+  {
+    "name": "精銳千夫長武器",
+    "level": 50,
+    "requireAp": 922200,
+    "medal": "🥇",
+    "medalNum": 93
+  },
+  {
+    "name": "精銳千夫長盾牌",
+    "level": 50,
+    "requireAp": 614800,
+    "medal": "🥇",
+    "medalNum": 62
+  }
+]

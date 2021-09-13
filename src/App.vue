@@ -73,10 +73,10 @@
 
         <div v-if="userBrushTotal && atmBrushTotal">
           <n-divider />
-          <n-alert :type="userBrushTotal > 0 ? 'success' : 'warning'">
+          <n-alert :type="userBrushTotal > 0 ? 'success' : 'error'">
             <p>您總計獲得 {{ userBrushTotal }} 深淵點</p>
           </n-alert>
-          <n-alert :type="atmBrushTotal > 0 ? 'success' : 'warning'">
+          <n-alert :type="atmBrushTotal > 0 ? 'success' : 'error'">
             <p>ATM 殺星總計獲得 {{ atmBrushTotal }} 深淵點</p>
           </n-alert>
         </div>
@@ -138,11 +138,6 @@
 </template>
 
 <script>
-import PositionTable from "@/components/PositionTable.vue";
-import AbyssGearTable from "@/components/AbyssGearTable.vue";
-import SelectPosition from "@/components/SelectPosition.vue";
-import SelectGear from "@/components/SelectGear.vue";
-
 import {
   userPosition,
   setUserPosition,
@@ -154,12 +149,6 @@ import { selectPosition } from "@/hooks/useSelect";
 import { ref, computed, watchEffect } from "vue";
 
 export default {
-  components: {
-    PositionTable,
-    AbyssGearTable,
-    SelectPosition,
-    SelectGear,
-  },
   setup() {
     const userAp = ref();
     const expectAp = ref();

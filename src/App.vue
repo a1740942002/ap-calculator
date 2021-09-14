@@ -3,10 +3,9 @@
     <div>
       <h1 class="text-3xl font-semibold">ATM 殺星計算機</h1>
       <p>給我 ATM 殺星，我給你全世界。</p>
-      <p>{{ selectGear?.name }}</p>
     </div>
 
-    <div class="flex justify-between">
+    <div class="flex justify-between space-x-4">
       <div class="space-y-4">
         <h3 class="text-xl">填寫資料</h3>
 
@@ -131,9 +130,26 @@
         <div>
           <p>我想換...</p>
           <SelectGear />
-          <div v-if="false">
-            <p>距離你想換的武器還差</p>
-            <p>需要再與 ATM 殺星對刷 19 次！</p>
+          <div v-if="selectGear?.requireAp - userAp <= 0">
+            <p>恭喜，你已經可以兌換該裝備。</p>
+            <p>
+              兌換之後剩餘深淵點：
+              {{ userAp - selectGear?.requireAp }}
+            </p>
+            <p v-if="userAp - selectGear?.requireAp < 150800">
+              建議再多存
+              {{ 150800 - userAp + selectGear?.requireAp }} 深淵點以上才進行兌換
+              。
+            </p>
+            <p v-else>有保持 1 等兵以上，請安心兌換。</p>
+          </div>
+          <div v-else-if="selectGear">
+            <p>距離你想換的武器還差 {{ selectGear?.requireAp - userAp }}</p>
+            <p>
+              需要再與 ATM 殺星對刷
+              {{ Math.ceil((selectGear?.requireAp - userAp) / userBrushTotal) }}
+              次！
+            </p>
           </div>
         </div>
       </div>

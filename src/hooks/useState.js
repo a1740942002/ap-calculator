@@ -2,6 +2,9 @@ import { ref } from 'vue';
 import abyssGearDatas from '@/data/abyssGearDatas.json';
 import positionDatas from '@/data/positionDatas.json';
 
+export const userAp = ref();
+export const atmAp = ref();
+
 export const selectGear = ref({});
 export const setSelectGear = (name) => {
   const gear = abyssGearDatas.find((ger) => {
@@ -44,4 +47,20 @@ export const setAtmPosition = (abyssPoint) => {
     return abyssPoint >= position.levelUpAp;
   });
   atmPosition.value = position;
+};
+
+export const user1SelectPosition = ref({});
+export const setUser1SelectPosition = (value) => {
+  const position = positionDatas.find((pos) => {
+    return pos.rank == value;
+  });
+  user1SelectPosition.value = position;
+};
+
+export const user2SelectPosition = ref({});
+export const setUser2SelectPosition = (value) => {
+  const position = positionDatas.find((pos) => {
+    return pos.rank == value;
+  });
+  user2SelectPosition.value = position;
 };

@@ -1,5 +1,7 @@
 <template>
-  <n-data-table :columns="columns" :data="data" :max-height="500" />
+  <n-card title="軍階表">
+    <n-data-table :columns="columns" :data="data" :max-height="500" />
+  </n-card>
 </template>
 
 <script>

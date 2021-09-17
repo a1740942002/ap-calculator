@@ -3,6 +3,7 @@
     <div>
       <h1 class="text-3xl font-semibold">深淵點互刷計算機</h1>
       <n-divider />
+      <p>根之島很危險，算完趕快刷不要逗留。</p>
     </div>
 
     <div class="md:flex md:justify-between md:space-x-4">

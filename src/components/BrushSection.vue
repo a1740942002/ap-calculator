@@ -36,7 +36,10 @@
       <n-alert title="天族" :type="atmBrushTotal > 0 ? 'success' : 'error'">
         <p>總計獲得 {{ atmBrushTotal }} 深淵點</p>
       </n-alert>
-      <n-alert title="雙方" type="info">
+      <n-alert
+        title="雙方"
+        :type="userBrushTotal + atmBrushTotal > 0 ? 'success' : 'error'"
+      >
         總計獲得 {{ userBrushTotal + atmBrushTotal }} 深淵點
       </n-alert>
     </div>

@@ -1,6 +1,11 @@
 <template>
   <n-card title="軍階表">
-    <n-data-table :columns="columns" :data="data" :max-height="500" />
+    <n-data-table
+      :columns="columns"
+      :data="data"
+      :max-height="500"
+      width="1000"
+    />
   </n-card>
 </template>
 

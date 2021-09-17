@@ -6,7 +6,7 @@
       <p>就是一個計算深淵點的互刷計算機</p>
     </div>
 
-    <div class="flex justify-between space-x-4">
+    <div class="md:flex md:justify-between md:space-x-4">
       <div class="flex-1">
         <InputSection />
       </div>
@@ -20,6 +20,6 @@
       <PositionTable />
       <AbyssGearTable />
     </div>
-    <n-back-top :right="32" />
+    <n-back-top :right="32" :visibility-height="300" />
   </div>
 </template>

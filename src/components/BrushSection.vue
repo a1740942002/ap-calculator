@@ -8,9 +8,13 @@
         placeholder="請輸入您要擊殺的次數"
         max="6"
       />
-      <div v-if="userBrushGet">
-        <p>魔族預計獲取 {{ userBrushGet }} 深淵點</p>
-        <p>天族預計損失 {{ atmBrushLose }} 深淵點</p>
+      <div class="space-y-1 mt-1" v-if="userBrushGet">
+        <p class="text-gray-700 text-xs">
+          魔族預計獲取 {{ userBrushGet }} 深淵點
+        </p>
+        <p class="text-gray-700 text-xs">
+          天族預計損失 {{ atmBrushLose }} 深淵點
+        </p>
       </div>
     </div>
 
@@ -22,9 +26,13 @@
         placeholder="請輸入您要被擊殺的次數"
         max="6"
       />
-      <div v-if="userBrushLose">
-        <p>魔族預計損失 {{ userBrushLose }} 深淵點</p>
-        <p>天族預計獲取 {{ atmBrushGet }} 深淵點</p>
+      <div class="space-y-1 mt-1" v-if="userBrushLose">
+        <p class="text-gray-700 text-xs">
+          魔族預計損失 {{ userBrushLose }} 深淵點
+        </p>
+        <p class="text-gray-700 text-xs">
+          天族預計獲取 {{ atmBrushGet }} 深淵點
+        </p>
       </div>
     </div>
 

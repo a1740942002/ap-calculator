@@ -3,11 +3,11 @@
     <n-tabs type="line">
       <n-tab-pane name="選擇軍階" tab="選擇軍階" class="space-y-4">
         <div>
-          <label>玩家 1 軍階</label>
+          <label>魔族玩家軍階</label>
           <User1SelectPosition />
         </div>
         <div>
-          <label>玩家 2 軍階</label>
+          <label>天族玩家軍階</label>
           <User2SelectPosition />
         </div>
       </n-tab-pane>

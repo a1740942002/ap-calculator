@@ -15,6 +15,10 @@
         <p class="text-gray-700 text-xs">
           天族預計損失 {{ atmBrushLose }} 深淵點
         </p>
+        <p v-if="isEloyRankOne" class="text-gray-700 text-xs">
+          提醒：天族玩家為 {{ user2SelectPosition.name }}，1
+          等兵以上的階級每人最多只能被擊殺 5 次，再多將無法取得。
+        </p>
       </div>
     </div>
 
@@ -32,6 +36,10 @@
         </p>
         <p class="text-gray-700 text-xs">
           天族預計獲取 {{ atmBrushGet }} 深淵點
+        </p>
+        <p v-if="isAsmoRankOne" class="text-gray-700 text-xs">
+          提醒：魔族玩家為 {{ user1SelectPosition.name }}，1
+          等兵以上的階級每人最多只能被擊殺 5 次，再多將無法取得。
         </p>
       </div>
     </div>
@@ -69,13 +77,14 @@ import {
   atmPosition,
   selectPosition,
   selectGear,
+  user1SelectPosition,
+  user2SelectPosition,
 } from "@/hooks/useState";
 import { ref, computed } from "vue";
 
 export default {
   setup() {
     const expectAp = ref();
-    const goalResult = computed(() => expectAp.value - userAp.value);
     const killNum = ref();
     const deadNum = ref();
     const userBrushGet = computed(
@@ -99,11 +108,17 @@ export default {
       () => atmBrushGet.value - atmBrushLose.value
     );
 
+    const isAsmoRankOne = computed(
+      () => userAp >= 150800 || user1SelectPosition.value?.levelUpAp >= 150800
+    );
+    const isEloyRankOne = computed(
+      () => atmAp >= 150800 || user2SelectPosition.value?.levelUpAp >= 150800
+    );
+
     return {
       userAp,
       atmAp,
       expectAp,
-      goalResult,
       killNum,
       deadNum,
       userBrushGet,
@@ -117,6 +132,10 @@ export default {
       atmPosition,
       selectPosition,
       selectGear,
+      isAsmoRankOne,
+      isEloyRankOne,
+      user1SelectPosition,
+      user2SelectPosition,
     };
   },
 };

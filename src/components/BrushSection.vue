@@ -6,7 +6,8 @@
         v-model:value="killNum"
         clearable
         placeholder="請輸入您要擊殺的次數"
-        max="6"
+        :max="isEloyRankOne ? 5 : 6"
+        min="0"
       />
       <div class="space-y-1 mt-1" v-if="userBrushGet">
         <p class="text-gray-700 text-xs">
@@ -19,6 +20,10 @@
           提醒：天族玩家為 {{ user2SelectPosition.name }}，1
           等兵以上的階級每人最多只能被擊殺 5 次，再多將無法取得。
         </p>
+        <p v-else class="text-gray-700 text-xs">
+          提醒：天族玩家為 {{ user2SelectPosition.name }}，1
+          等兵以下的階級每人最多可以被擊殺 6 次，再多將無法取得。
+        </p>
       </div>
     </div>
 
@@ -28,7 +33,8 @@
         v-model:value="deadNum"
         clearable
         placeholder="請輸入您要被擊殺的次數"
-        max="6"
+        :max="isAsmoRankOne ? 5 : 6"
+        min="0"
       />
       <div class="space-y-1 mt-1" v-if="userBrushLose">
         <p class="text-gray-700 text-xs">
@@ -40,6 +46,10 @@
         <p v-if="isAsmoRankOne" class="text-gray-700 text-xs">
           提醒：魔族玩家為 {{ user1SelectPosition.name }}，1
           等兵以上的階級每人最多只能被擊殺 5 次，再多將無法取得。
+        </p>
+        <p v-else class="text-gray-700 text-xs">
+          提醒：魔族玩家為 {{ user2SelectPosition.name }}，1
+          等兵以下的階級每人最多可以被擊殺 6 次，再多將無法取得。
         </p>
       </div>
     </div>

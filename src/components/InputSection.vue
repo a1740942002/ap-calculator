@@ -15,6 +15,12 @@
         <InputByAp />
       </n-tab-pane>
     </n-tabs>
+    <div v-if="!user1SelectPosition || !user2SelectPosition">
+      <n-divider />
+      <n-alert type="warning"
+        >請使用選擇軍階或是輸入深淵點的方式來進行計算。</n-alert
+      >
+    </div>
   </n-card>
 </template>
 

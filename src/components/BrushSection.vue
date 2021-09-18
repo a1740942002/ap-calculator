@@ -48,7 +48,7 @@
           等兵以上的階級每人最多只能被擊殺 5 次，再多將無法取得。
         </p>
         <p v-else class="text-gray-700 text-xs">
-          提醒：魔族玩家為 {{ user2SelectPosition.name }}，1
+          提醒：魔族玩家為 {{ user1SelectPosition.name }}，1
           等兵以下的階級每人最多可以被擊殺 6 次，再多將無法取得。
         </p>
       </div>

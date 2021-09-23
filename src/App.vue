@@ -7,7 +7,6 @@
   <n-back-top :right="32" :visibility-height="300" />
 </template>
 
-
 <style>
 #nprogress .bar {
   background: red !important;

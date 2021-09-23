@@ -3,7 +3,7 @@ import NProgress from 'nprogress';
 
 export function useApi(token) {
   const api = axios.create({
-    baseURL: 'http://localhost:1337',
+    baseURL: 'https://weblai-strapi.herokuapp.com',
   });
 
   if (token) {

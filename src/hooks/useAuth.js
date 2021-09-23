@@ -21,7 +21,7 @@ export function useAuth() {
       token.value = res.data.jwt;
       cookies.set('user', user.value);
       cookies.set('token', token.value);
-      location.reload();
+      location.href = '/';
       return res;
     } catch (err) {
       error.value = err.response.data.message[0].messages[0].message;

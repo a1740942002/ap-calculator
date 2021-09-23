@@ -23,7 +23,13 @@
     </section>
 
     <section class="space-y-8" v-else>
-      <h1>請登入以進行使用</h1>
+      <h3 class="text-xl">
+        請<router-link
+          :to="{ name: 'Login' }"
+          class="text-green-500 hover:text-green-800"
+          >登入</router-link
+        >以進行使用
+      </h3>
       <div>
         <Skeleton />
       </div>

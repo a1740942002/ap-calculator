@@ -1,11 +1,6 @@
 <template>
   <div class="bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <img
-        class="mx-auto h-12 w-auto"
-        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-        alt="Workflow"
-      />
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
         註冊
       </h2>
@@ -14,7 +9,7 @@
         {{ " " }}
         <router-link
           :to="{ name: 'Login' }"
-          class="font-medium text-indigo-600 hover:text-indigo-500"
+          class="font-medium text-green-600 hover:text-green-500"
         >
           登入
         </router-link>
@@ -49,8 +44,8 @@
                   shadow-sm
                   placeholder-gray-400
                   focus:outline-none
-                  focus:ring-indigo-500
-                  focus:border-indigo-500
+                  focus:ring-green-500
+                  focus:border-green-500
                   sm:text-sm
                 "
               />
@@ -78,8 +73,8 @@
                   shadow-sm
                   placeholder-gray-400
                   focus:outline-none
-                  focus:ring-indigo-500
-                  focus:border-indigo-500
+                  focus:ring-green-500
+                  focus:border-green-500
                   sm:text-sm
                 "
               />
@@ -111,8 +106,8 @@
                   shadow-sm
                   placeholder-gray-400
                   focus:outline-none
-                  focus:ring-indigo-500
-                  focus:border-indigo-500
+                  focus:ring-green-500
+                  focus:border-green-500
                   sm:text-sm
                 "
               />
@@ -134,10 +129,10 @@
                 text-sm
                 font-medium
                 text-white
-                bg-indigo-600
-                hover:bg-indigo-700
+                bg-green-600
+                hover:bg-green-700
                 focus:outline-none
-                focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                focus:ring-2 focus:ring-offset-2 focus:ring-green-500
               "
             >
               註冊
@@ -156,9 +151,9 @@ import { useAuth } from "@/hooks/useAuth";
 
 export default {
   setup() {
-    const username = ref("a1740942002");
-    const email = ref("a1740942002@me.com");
-    const password = ref("andy1106");
+    const username = ref("");
+    const email = ref("");
+    const password = ref("");
     const { error, user, signup } = useAuth();
 
     const handleSubmit = async () => {

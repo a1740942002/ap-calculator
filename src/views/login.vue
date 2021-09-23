@@ -1,20 +1,15 @@
 <template>
   <div class="bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <img
-        class="mx-auto h-12 w-auto"
-        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-        alt="Workflow"
-      />
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-        登入 <span v-if="isLogin">{{ user.email }}</span>
+        登入
       </h2>
       <p class="mt-2 text-center text-sm text-gray-600">
         沒有帳號嗎？前往
         {{ " " }}
         <router-link
           :to="{ name: 'SignUp' }"
-          class="font-medium text-indigo-600 hover:text-indigo-500"
+          class="font-medium text-green-600 hover:text-green-500"
         >
           註冊
         </router-link>
@@ -49,8 +44,8 @@
                   shadow-sm
                   placeholder-gray-400
                   focus:outline-none
-                  focus:ring-indigo-500
-                  focus:border-indigo-500
+                  focus:ring-green-500
+                  focus:border-green-500
                   sm:text-sm
                 "
               />
@@ -82,8 +77,8 @@
                   shadow-sm
                   placeholder-gray-400
                   focus:outline-none
-                  focus:ring-indigo-500
-                  focus:border-indigo-500
+                  focus:ring-green-500
+                  focus:border-green-500
                   sm:text-sm
                 "
               />
@@ -105,10 +100,10 @@
                 text-sm
                 font-medium
                 text-white
-                bg-indigo-600
-                hover:bg-indigo-700
+                bg-green-600
+                hover:bg-green-700
                 focus:outline-none
-                focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                focus:ring-2 focus:ring-offset-2 focus:ring-green-500
               "
             >
               登入
@@ -128,8 +123,8 @@ import { ref, watchEffect } from "vue";
 export default {
   setup() {
     const { isLogin, login, user, token, error } = useAuth();
-    const identifier = ref("a1740942002@me.com");
-    const password = ref("andy1106");
+    const identifier = ref("");
+    const password = ref("");
     const notification = useNotification();
 
     const handleLogin = async () => {

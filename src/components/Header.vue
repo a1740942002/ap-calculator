@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <header class="bg-indigo-600">
+  <header class="bg-green-600">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
       <div
         class="
@@ -9,13 +9,13 @@
           flex
           items-center
           justify-between
-          border-b border-indigo-500
+          border-b border-green-500
           lg:border-none
         "
       >
         <div class="flex items-center">
           <router-link :to="{ name: 'Home' }">
-            <span class="sr-only">Workflow</span>
+            <span class="sr-only">深淵點計算機</span>
             <img
               class="h-10 w-auto"
               src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
@@ -27,7 +27,7 @@
               v-for="link in navigation"
               :key="link.name"
               :to="{ name: link.name }"
-              class="text-base font-medium text-white hover:text-indigo-50"
+              class="text-base font-medium text-white hover:text-green-50"
             >
               {{ link.label }}
             </router-link>
@@ -38,7 +38,7 @@
             :to="{ name: 'Login' }"
             class="
               inline-block
-              bg-indigo-500
+              bg-green-500
               py-2
               px-4
               border border-transparent
@@ -61,8 +61,8 @@
               rounded-md
               text-base
               font-medium
-              text-indigo-600
-              hover:bg-indigo-50
+              text-green-600
+              hover:bg-green-50
             "
             >註冊</router-link
           >
@@ -79,23 +79,13 @@
               rounded-md
               text-base
               font-medium
-              text-indigo-600
-              hover:bg-indigo-50
+              text-green-600
+              hover:bg-green-50
             "
           >
             登出
           </button>
         </div>
-      </div>
-      <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
-        <a
-          v-for="link in navigation"
-          :key="link.name"
-          :to="link.name"
-          class="text-base font-medium text-white hover:text-indigo-50"
-        >
-          {{ link.name }}
-        </a>
       </div>
     </nav>
   </header>

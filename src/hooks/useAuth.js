@@ -46,7 +46,6 @@ export function useAuth() {
 
   const logout = async () => {
     try {
-      console.log('logout');
       cookies.remove('user');
       cookies.remove('token');
       user.value = {};

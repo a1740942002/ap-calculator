@@ -19,6 +19,7 @@ import {
   NFormItem,
   NForm,
   NFormItemRow,
+  NNotificationProvider,
 } from 'naive-ui';
 
 const naive = create({
@@ -36,6 +37,7 @@ const naive = create({
     NFormItem,
     NForm,
     NFormItemRow,
+    NNotificationProvider,
   ],
 });
 

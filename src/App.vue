@@ -9,6 +9,6 @@
 
 <style>
 #nprogress .bar {
-  background: red !important;
+  background: rgb(231, 255, 231) !important;
 }
 </style>

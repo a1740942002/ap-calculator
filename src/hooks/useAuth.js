@@ -25,7 +25,6 @@ export function useAuth() {
       return res;
     } catch (err) {
       error.value = err.response.data.message[0].messages[0].message;
-      return new Promise.reject(err);
     }
   };
 
@@ -40,7 +39,6 @@ export function useAuth() {
       return res;
     } catch (err) {
       error.value = err.response.data.message[0].messages[0].message;
-      return new Promise.reject(err);
     }
   };
 
@@ -53,7 +51,6 @@ export function useAuth() {
       location.href = '/';
     } catch (err) {
       error.value = err.response;
-      return new Promise.reject(err);
     }
   };
 

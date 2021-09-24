@@ -139,7 +139,6 @@ export default {
     watchEffect(() => {
       if (error.value) {
         notification.error({ content: error.value });
-        error.value = "";
       }
     });
 

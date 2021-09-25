@@ -5,10 +5,9 @@ import { ref, computed } from 'vue';
 export function useAuth() {
   const { api } = useApi();
   const user = ref({});
+  const isLogin = computed(() => Object.keys(user.value).length);
   const token = ref('');
   const cookies = useCookies(['user', 'token']);
-
-  const isLogin = computed(() => Object.keys(user.value).length);
   const error = ref('');
 
   user.value = cookies.get('user') || {};
@@ -42,16 +41,12 @@ export function useAuth() {
     }
   };
 
-  const logout = async () => {
-    try {
-      cookies.remove('user');
-      cookies.remove('token');
-      user.value = {};
-      token.value = '';
-      location.href = '/';
-    } catch (err) {
-      error.value = err.response;
-    }
+  const logout = () => {
+    cookies.remove('user');
+    cookies.remove('token');
+    user.value = {};
+    token.value = '';
+    location.href = '/';
   };
 
   return {

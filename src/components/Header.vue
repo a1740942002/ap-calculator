@@ -68,6 +68,9 @@
           >
         </div>
         <div class="space-x-4" v-else>
+          <span class="text-green-100 inline-block"
+            >你好，{{ user.username }}</span
+          >
           <button
             @click="logout"
             class="

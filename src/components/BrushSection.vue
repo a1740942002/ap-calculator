@@ -71,9 +71,7 @@
     </div>
     <div v-else>
       <n-divider />
-      <n-alert type="warning"
-        >請輸入完整資料以進行計算，每個欄位都要填寫</n-alert
-      >
+      <n-alert type="warning">請輸入完整資料以獲取結果。</n-alert>
     </div>
   </n-card>
 </template>

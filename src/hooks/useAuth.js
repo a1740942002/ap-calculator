@@ -7,19 +7,27 @@ export function useAuth() {
   const user = ref({});
   const isLogin = computed(() => Object.keys(user.value).length);
   const token = ref('');
-  const cookies = useCookies(['user', 'token']);
+  const cookies = useCookies(['token']);
   const error = ref('');
 
-  user.value = cookies.get('user') || {};
   token.value = cookies.get('token') || '';
 
-  const signup = async (userData) => {
+  const getMe = async (token) => {
+    const { api } = useApi(token);
+    const res = await api.get('/users/me');
+    return res.data;
+  };
+
+  if (token.value) {
+    getMe(token).then((userData) => (user.value = userData));
+  }
+
+  const login = async (userData) => {
     try {
-      const res = await api.post('/auth/local/register', userData);
-      user.value = res.data.user;
+      const res = await api.post(`/auth/local`, userData);
       token.value = res.data.jwt;
-      cookies.set('user', user.value);
       cookies.set('token', token.value);
+      user.value = await getMe(token);
       location.href = '/';
       return res;
     } catch (err) {
@@ -27,13 +35,12 @@ export function useAuth() {
     }
   };
 
-  const login = async (userData) => {
+  const signup = async (userData) => {
     try {
-      const res = await api.post(`/auth/local`, userData);
-      user.value = res.data.user;
+      const res = await api.post('/auth/local/register', userData);
       token.value = res.data.jwt;
-      cookies.set('user', user.value);
       cookies.set('token', token.value);
+      const user = await getMe(token);
       location.href = '/';
       return res;
     } catch (err) {
@@ -42,9 +49,7 @@ export function useAuth() {
   };
 
   const logout = () => {
-    cookies.remove('user');
     cookies.remove('token');
-    user.value = {};
     token.value = '';
     location.href = '/';
   };

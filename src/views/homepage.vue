@@ -53,11 +53,11 @@
 </template>
 
 <script>
-import { useAuth } from "@/hooks/useAuth";
+import { inject } from "vue";
 
 export default {
   setup() {
-    const { isLogin } = useAuth();
+    const isLogin = inject("isLogin");
     return {
       isLogin,
     };

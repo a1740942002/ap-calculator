@@ -18,10 +18,6 @@ export function useAuth() {
     return res.data;
   };
 
-  if (token.value) {
-    getMe(token).then((userData) => (user.value = userData));
-  }
-
   const login = async (userData) => {
     try {
       const res = await api.post(`/auth/local`, userData);
@@ -40,7 +36,7 @@ export function useAuth() {
       const res = await api.post('/auth/local/register', userData);
       token.value = res.data.jwt;
       cookies.set('token', token.value);
-      const user = await getMe(token);
+      user.value = await getMe(token);
       location.href = '/';
       return res;
     } catch (err) {
@@ -63,5 +59,6 @@ export function useAuth() {
     signup,
     login,
     logout,
+    getMe,
   };
 }

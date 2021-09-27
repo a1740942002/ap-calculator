@@ -96,12 +96,16 @@
 
 <script>
 import { useAuth } from "@/hooks/useAuth";
+import { inject } from "vue";
 
 const navigation = [{ name: "Home", label: "首頁" }];
 
 export default {
   setup() {
-    const { user, logout, isLogin } = useAuth();
+    // const { user, logout, isLogin } = useAuth();
+    const { logout } = useAuth();
+    const user = inject("user");
+    const isLogin = inject("isLogin");
 
     return {
       user,

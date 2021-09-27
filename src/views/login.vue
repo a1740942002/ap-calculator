@@ -122,7 +122,7 @@ import { ref, watchEffect } from "vue";
 
 export default {
   setup() {
-    const { isLogin, login, user, token, error } = useAuth();
+    const { login, error } = useAuth();
     const identifier = ref("");
     const password = ref("");
     const notification = useNotification();
@@ -143,13 +143,10 @@ export default {
     });
 
     return {
-      isLogin,
-      user,
       login,
       identifier,
       password,
       handleLogin,
-      token,
       error,
     };
   },

@@ -118,7 +118,8 @@
 <script>
 import { useNotification } from "naive-ui";
 import { useAuth } from "@/hooks/useAuth.js";
-import { ref, watchEffect } from "vue";
+import { ref, watchEffect, inject } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -126,6 +127,9 @@ export default {
     const identifier = ref("");
     const password = ref("");
     const notification = useNotification();
+    const user = inject("user");
+    const isLogin = inject("isLogin");
+    const router = useRouter();
 
     const handleLogin = async () => {
       await login({
@@ -139,6 +143,10 @@ export default {
     watchEffect(() => {
       if (error.value) {
         notification.error({ content: error.value });
+      }
+
+      if (isLogin.value) {
+        router.push({ name: "Home" });
       }
     });
 

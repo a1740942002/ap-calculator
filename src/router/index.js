@@ -4,6 +4,7 @@ import Login from '@/views/login.vue';
 import SignUp from '@/views/signup.vue';
 import NProgress from 'nprogress';
 import { useAuth } from '@/hooks/useAuth';
+import { inject } from 'vue';
 
 const routes = [
   {

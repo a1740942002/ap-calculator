@@ -1,6 +1,7 @@
-import { useApi } from '@/hooks/useApi';
+import { useApi } from '../hooks/useApi';
 import { useCookies } from '@vueuse/integrations/useCookies';
-import { ref, computed } from 'vue';
+import { ref, computed, Ref } from 'vue';
+import { LoginUserData, RegisterUserData } from '../types';
 
 export function useAuth() {
   const { api } = useApi();
@@ -12,15 +13,19 @@ export function useAuth() {
 
   token.value = cookies.get('token') || '';
 
-  const getMe = async (token) => {
-    const { api } = useApi(token);
-    const res = await api.get('/users/me');
-    return res.data;
+  const getMe = async (token?: Ref<string>) => {
+    try {
+      const { api } = useApi(token);
+      const res = await api.get('/users/me');
+      return res.data;
+    } catch (err) {
+      error.value = err.response.data.message;
+    }
   };
 
-  const login = async (userData) => {
+  const login = async (loginUserData: LoginUserData) => {
     try {
-      const res = await api.post(`/auth/local`, userData);
+      const res = await api.post(`/auth/local`, loginUserData);
       token.value = res.data.jwt;
       cookies.set('token', token.value);
       user.value = await getMe(token);
@@ -31,9 +36,9 @@ export function useAuth() {
     }
   };
 
-  const signup = async (userData) => {
+  const signup = async (registerUserData: RegisterUserData) => {
     try {
-      const res = await api.post('/auth/local/register', userData);
+      const res = await api.post('/auth/local/register', registerUserData);
       token.value = res.data.jwt;
       cookies.set('token', token.value);
       user.value = await getMe(token);

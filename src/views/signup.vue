@@ -144,19 +144,20 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { useNotification } from "naive-ui";
-import { ref, watchEffect, inject } from "vue";
-import { useAuth } from "@/hooks/useAuth";
+import { ComputedRef, ref, watchEffect, inject } from "vue";
+import { useAuth } from "../hooks/useAuth";
 import { useRouter } from "vue-router";
 
 export default {
   setup() {
+    const notification = useNotification();
     const username = ref("");
     const email = ref("");
     const password = ref("");
-    const { error, user, signup } = useAuth();
-    const isLogin = inject("isLogin");
+    const { error, signup } = useAuth();
+    const isLogin = inject("isLogin") as ComputedRef<number>;
     const router = useRouter();
 
     const handleSubmit = async () => {
@@ -168,7 +169,6 @@ export default {
       await signup(userData);
     };
 
-    const notification = useNotification();
     watchEffect(() => {
       if (error.value) {
         notification.error({ content: error.value });
@@ -185,7 +185,6 @@ export default {
       email,
       password,
       handleSubmit,
-      user,
       error,
     };
   },

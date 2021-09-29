@@ -115,10 +115,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { useNotification } from "naive-ui";
-import { useAuth } from "@/hooks/useAuth.js";
-import { ref, watchEffect, inject } from "vue";
+import { useAuth } from "../hooks/useAuth";
+import { ComputedRef, ref, watchEffect, inject } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
@@ -127,8 +127,7 @@ export default {
     const identifier = ref("");
     const password = ref("");
     const notification = useNotification();
-    const user = inject("user");
-    const isLogin = inject("isLogin");
+    const isLogin = inject("isLogin") as ComputedRef<number>;
     const router = useRouter();
 
     const handleLogin = async () => {

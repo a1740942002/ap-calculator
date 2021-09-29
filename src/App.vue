@@ -7,11 +7,11 @@
   <n-back-top :right="32" :visibility-height="300" />
 </template>
 
-<script>
-import { useAuth } from "@/hooks/useAuth";
-import { provide } from "vue";
+<script lang="ts">
+import { useAuth } from "./hooks/useAuth";
+import { provide, defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   setup() {
     const { user, isLogin, token, getMe } = useAuth();
     if (token.value) {
@@ -22,7 +22,7 @@ export default {
 
     return { user, isLogin, token };
   },
-};
+});
 </script>
 
 <style>

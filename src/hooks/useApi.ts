@@ -1,7 +1,8 @@
 import axios from 'axios';
 import NProgress from 'nprogress';
+import { Ref } from 'vue';
 
-export function useApi(token) {
+export function useApi(token?: Ref<string>) {
   const api = axios.create({
     baseURL: 'https://weblai-strapi.herokuapp.com',
   });

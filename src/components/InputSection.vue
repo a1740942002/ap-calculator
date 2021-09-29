@@ -30,7 +30,7 @@ import {
   atmPosition,
   user1SelectPosition,
   user2SelectPosition,
-} from "@/hooks/useState.js";
+} from "../hooks/useState";
 import { watchEffect } from "vue";
 export default {
   setup() {

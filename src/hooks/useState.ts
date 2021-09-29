@@ -1,6 +1,6 @@
 import { ref } from 'vue';
-import abyssGearDatas from '@/data/abyssGearDatas.json';
-import positionDatas from '@/data/positionDatas.json';
+import abyssGearDatas from '../data/abyssGearDatas.json';
+import positionDatas from '../data/positionDatas.json';
 
 export const userAp = ref();
 export const atmAp = ref();

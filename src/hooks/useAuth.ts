@@ -29,10 +29,10 @@ export function useAuth() {
       token.value = res.data.jwt;
       cookies.set('token', token.value);
       user.value = await getMe(token);
-      location.href = '/';
       return res;
     } catch (err) {
       error.value = err.response.data.message[0].messages[0].message;
+      return err.response;
     }
   };
 
@@ -42,10 +42,10 @@ export function useAuth() {
       token.value = res.data.jwt;
       cookies.set('token', token.value);
       user.value = await getMe(token);
-      location.href = '/';
       return res;
     } catch (err) {
       error.value = err.response.data.message[0].messages[0].message;
+      return err.response;
     }
   };
 

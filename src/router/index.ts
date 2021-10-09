@@ -3,7 +3,6 @@ import Home from '../views/homepage.vue';
 import Login from '../views/login.vue';
 import SignUp from '../views/signup.vue';
 import NProgress from 'nprogress';
-import { useAuth } from '../hooks/useAuth';
 
 const routes = [
   {

@@ -166,15 +166,20 @@ export default {
         email: email.value,
         password: password.value,
       };
-      await signup(userData);
+      notification.warning({ content: "註冊中...", duration: 3000 });
+      const res = await signup(userData);
+      if (res.status == 200) {
+        notification.success({
+          content: "註冊成功，將進行跳轉...",
+          duration: 3000,
+        });
+        location.href = "/";
+      } else {
+        notification.error({ content: error.value, duration: 3000 });
+      }
     };
 
     watchEffect(() => {
-      if (error.value) {
-        notification.error({ content: error.value });
-        error.value = "";
-      }
-
       if (isLogin.value) {
         router.push({ name: "Home" });
       }

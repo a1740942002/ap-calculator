@@ -131,19 +131,26 @@ export default {
     const router = useRouter();
 
     const handleLogin = async () => {
-      await login({
+      notification.warning({ content: "登入中...", duration: 3000 });
+      const res = await login({
         identifier: identifier.value,
         password: password.value,
       });
-      identifier.value = "";
-      password.value = "";
+      console.log(res);
+      if (res.status == 200) {
+        notification.success({
+          content: "登入成功，將進行跳轉...",
+          duration: 3000,
+        });
+        identifier.value = "";
+        password.value = "";
+        location.href = "/";
+      } else {
+        notification.error({ content: error.value, duration: 3000 });
+      }
     };
 
     watchEffect(() => {
-      if (error.value) {
-        notification.error({ content: error.value });
-      }
-
       if (isLogin.value) {
         router.push({ name: "Home" });
       }

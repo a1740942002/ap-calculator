@@ -19,7 +19,6 @@ export default defineComponent({
     }
     provide("user", user);
     provide("isLogin", isLogin);
-
     return { user, isLogin, token };
   },
 });

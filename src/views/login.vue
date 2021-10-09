@@ -136,7 +136,6 @@ export default {
         identifier: identifier.value,
         password: password.value,
       });
-      console.log(res);
       if (res.status == 200) {
         notification.success({
           content: "登入成功，將進行跳轉...",

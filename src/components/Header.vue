@@ -16,11 +16,7 @@
         <div class="flex items-center">
           <router-link :to="{ name: 'Home' }">
             <span class="sr-only">深淵點計算機</span>
-            <img
-              class="h-10 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
-              alt=""
-            />
+            <img class="h-10 w-auto" src="../assets/logo_white.png" alt="" />
           </router-link>
           <div class="hidden ml-10 space-x-8 lg:block">
             <router-link
